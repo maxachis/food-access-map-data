@@ -1,0 +1,19 @@
+  
+name: Run R Tests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  steps:
+  - uses: actions/checkout@master
+  - uses: r-lib/actions/setup-r@v1
+    with:
+      r-version: '3.5.3' # The R version to download (if necessary) and use.
+  - run: Rscript -e 'print("hello")'
