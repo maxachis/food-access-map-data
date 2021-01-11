@@ -18,7 +18,6 @@ jobs:
         r-version: '3.5.3' # The R version to download (if necessary) and use.
     - name: Install R Dependencies
       run: |
-          Rscript -e install.packages("devtools")
           Rscript -e devtools::install_github("hadley/tidyverse")
 #       - uses: actions/checkout@v2
     - name: Install Python 3
