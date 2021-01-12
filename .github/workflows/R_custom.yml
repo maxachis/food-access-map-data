@@ -16,8 +16,10 @@ jobs:
     - uses: r-lib/actions/setup-r@v1
       with:
         r-version: '3.5.3' # The R version to download (if necessary) and use.
-    - name: Install Tidyverse
-      run: Rscript -e 'install.packages("tidyverse")'
+    - name: Install Readr
+      run: Rscript -e 'install.packages("readr")'
+    - name: Install Magrittr
+      run: Rscript -e 'install.packages("magrittr")'
     - name: Install Testthat
       run: Rscript -e 'install.packages("testthat")'
     - name: Get current directory
