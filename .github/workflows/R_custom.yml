@@ -22,6 +22,8 @@ jobs:
       run: Rscript -e 'install.packages("magrittr")'
     - name: Install Testthat
       run: Rscript -e 'install.packages("testthat")'
+    - name: Install Devtools
+      run: Rscript -e 'install.packages("devtools")'
     - name: Get current directory
       run: pwd
     - name: Run testthat
