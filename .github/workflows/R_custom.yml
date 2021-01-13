@@ -27,4 +27,4 @@ jobs:
     - name: Get current directory
       run: pwd
     - name: Run testthat
-      run: Rscript -e 'devtools::test()'
+      run: Rscript 'run_tests.r'
