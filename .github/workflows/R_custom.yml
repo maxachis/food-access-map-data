@@ -25,4 +25,4 @@ jobs:
     - name: Get current directory
       run: pwd
     - name: Run testthat
-      run: Rscript 'devtools::test()'
+      run: Rscript -e 'test_local()'
