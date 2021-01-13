@@ -1,3 +1,4 @@
 library(testthat)
+library(myfirstpackage)
 
-test_dir(".")
+test_check("myfirstpackage")
