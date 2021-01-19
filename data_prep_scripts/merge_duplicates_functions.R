@@ -1,17 +1,5 @@
-# Merge_Duplicates.R
-# 2020-12-08 |  Max Chis | Initial Development
-# This script merges duplicate rows -- identified by their duplicate group id's -- together
-#  and reconciles disparities in key fields by prioritizing fields based on their source data sets
-# Outputs a merged dataset 
-
-library("readr")
-library("here")
-input_filename <- "data_prep_scripts/intermediate_data/merge_duplicates_input_test.csv"
-output_filename <- "data_prep_scripts/intermediate_data/merge_duplicates_output.csv"
-
-sfp <- read_csv(here::here('data_prep_scripts', 'source_field_prioritization_sample_data.csv'))
-md <- read_csv(here::here(input_filename))
-md$merged_record = '0'
+#Merge_duplicates_functions.R
+#Contains all functions to be used by auto_merge_duplicates.R
 
 #Obtains field's relative priority for that source (i.e., whether other sources should be relied on for that field instead)
 #returns a number indicating the priority
@@ -70,18 +58,19 @@ merge_duplicates <- function(rows_to_merge, source_field_prioritization) {
   return(primary)
 }
 
-#Then add non-test code that collects all distinct group_id values
-group_ids <- unique(md$group_id)
-group_ids <- group_ids[!is.na(group_ids)] #Remove the NA value
-#For each of these group_id values, get ids for all rows whose group_id matches that group_id
-for (i in 1:length(group_ids)) {
-  dup_rows <- subset(md, group_id %in% group_ids[i])
-  result <- merge_duplicates(dup_rows, sfp)
-  result$merged_record <- '1'
-  md <- rbind(md, result)
+merge_all_duplicates_in_dataframe <- function(df, source_field_prioritization) {
+  #Collect all distinct group_id values
+  group_ids <- unique(df$group_id)
+  group_ids <- group_ids[!is.na(group_ids)] #Remove the NA value
+  #For each of these group_id values, get ids for all rows whose group_id matches that group_id
+  for (i in 1:length(group_ids)) {
+    dup_rows <- subset(df, group_id %in% group_ids[i])
+    result <- merge_duplicates(dup_rows, sfp)
+    result$merged_record <- '1'
+    df <- rbind(df, result)
+  }
+  #Then remove id's from md that were in dup rows
+  df <- df[which(!df$group_id %in% group_ids ),]
+  #Then merge duplicates with those ids.
+  return(df)
 }
-#Then remove id's from md that were in dup rows
-md <- md[which(!md$group_id %in% group_ids ),]
-#Then merge duplicates with those ids.
-
-md %>% write_csv(here::here(output_filename))
