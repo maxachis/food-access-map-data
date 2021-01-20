@@ -11,14 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-  - uses: actions/checkout@master
-  - uses: r-lib/actions/setup-r@v1
-    with:
-      r-version: '3.5.3' # The R version to download (if necessary) and use.
-  - name: Install Packages
-    run: Rscript -e 'install.packages(c("tidyverse", "remotes"))'
-    run: Rscript -e 'remotes::install_github("walkerke/mapboxapi", dependencies = TRUE)'
-  - name: Get current directory
-    run: pwd
-  - name: Run workflow as shell script
-    run: bash 'data_prep_scripts/run.sh'
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@v1
+      with:
+        r-version: '3.5.3' # The R version to download (if necessary) and use.
+    - name: Install Packages
+      run: Rscript -e 'install.packages(c("tidyverse", "remotes"))'
+      run: Rscript -e 'remotes::install_github("walkerke/mapboxapi", dependencies = TRUE)'
+    - name: Get current directory
+      run: pwd
+    - name: Run workflow as shell script
+      run: bash 'data_prep_scripts/run.sh'
