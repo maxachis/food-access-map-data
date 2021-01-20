@@ -1,4 +1,4 @@
-name: Run R Tests
+name: Run Workflow
 on:
   push:
     branches:
@@ -17,6 +17,7 @@ jobs:
         r-version: '3.5.3' # The R version to download (if necessary) and use.
     - name: Install Packages
       run: Rscript -e 'install.packages(c("tidyverse", "remotes"))'
+    - name: Install remotes packages
       run: Rscript -e 'remotes::install_github("walkerke/mapboxapi", dependencies = TRUE)'
     - name: Get current directory
       run: pwd
