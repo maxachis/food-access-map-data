@@ -15,8 +15,10 @@ jobs:
     - uses: r-lib/actions/setup-r@v1
       with:
         r-version: '3.5.3' # The R version to download (if necessary) and use.
+    - name: setup libcurl
+      run: sudo apt-get install libcurl4-openssl-dev
     - name: Install Packages
-      run: Rscript -e 'install.packages(c("dplyr", "readr", "remotes", "mapboxapi"))'
+      run: Rscript -e 'install.packages(c("dplyr", "readr", "remotes", "mapboxapi"), Ncpus = 2, repos = "https://demo.rstudiopm.com/cran/__linux__/centos7/latest")'
     #- name: Install remotes packages
     #  run: Rscript -e 'remotes::install_github("walkerke/mapboxapi", dependencies = TRUE)'
     - name: Get current directory
