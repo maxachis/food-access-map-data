@@ -18,6 +18,8 @@ jobs:
       run: sudo apt-get install gdal-bin libgdal-dev
     - name: setup libudunits
       run: sudo apt-get install libudunits2-dev
+    - name: setup libgfortran3
+      run: sudo apt-get install libgfortran3
     - uses: r-lib/actions/setup-r@v1
       with:
         r-version: '3.5.3' # The R version to download (if necessary) and use. 
