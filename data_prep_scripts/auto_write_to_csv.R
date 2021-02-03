@@ -1,4 +1,5 @@
-library(tidyverse)
+library(dplyr)
+library(readr)
 
 final_table <- function(dat) {
   all_datasets <- read.table(dat)

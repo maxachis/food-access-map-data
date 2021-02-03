@@ -12,10 +12,10 @@
 
 # -------------------------- script
 ## load pkg
-# if (!require("tidyverse", character.only = TRUE)) {
+# if (!require("mapboxapi", character.only = TRUE)) {
 #   suppressWarnings(install.packages("tidyverse", dependencies = TRUE))
 # }
-suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(mapboxapi))
 
 #install mapboxapi package from github if not already installed
@@ -52,6 +52,7 @@ run_geocode <- function(input_dat) {
   
   ## write out as stdout
   write.table(all_datasets, stdout())
+ 
 }
 
 ## read in stdin() from previous step

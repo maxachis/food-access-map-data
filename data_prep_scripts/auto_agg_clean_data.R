@@ -12,9 +12,9 @@
 # -------------------------- script
 
 ## load pkg
-require("mapboxapi")
-require("dplyr")
-require("readr")
+# require("mapboxapi")
+# require("dplyr")
+# require("readr")
 # if (!require("tidyverse", character.only = TRUE)) {
 #   suppressPackageStartupMessages(install.packages("tidyverse", dependencies = TRUE))
 # }

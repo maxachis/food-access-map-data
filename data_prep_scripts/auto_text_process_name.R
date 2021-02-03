@@ -15,7 +15,7 @@
 # if (!require("tidyverse", character.only = TRUE)) {
 #   suppressWarnings(install.packages("tidyverse", dependencies = TRUE))
 # }
-suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(dplyr))
 
 ## hardcode look up tables
 supermarket <- c("ALDI", 
