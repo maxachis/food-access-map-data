@@ -12,10 +12,15 @@
 # -------------------------- script
 
 ## load pkg
+require("mapboxapi")
+require("dplyr")
+require("readr")
 # if (!require("tidyverse", character.only = TRUE)) {
 #   suppressPackageStartupMessages(install.packages("tidyverse", dependencies = TRUE))
 # }
-suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(readr))
+
 
 ## get input for file location passed from the command line
 args <- commandArgs(trailingOnly=TRUE)
