@@ -19,6 +19,8 @@ jobs:
       run: sudo apt-get install libcurl4-openssl-dev
     - name: setup gdal config
       run: sudo apt-get install gdal-bin libgdal-dev
+    -name: setup fortran
+      run: sudo apt-get install libgfortran3
     - name: Install Packages
       run: Rscript -e 'install.packages(c("dplyr", "readr", "remotes", "mapboxapi", "purrr"), Ncpus = 2, repos = "https://demo.rstudiopm.com/cran/__linux__/centos7/latest", dependencies = TRUE)'
     #- name: Install remotes packages
