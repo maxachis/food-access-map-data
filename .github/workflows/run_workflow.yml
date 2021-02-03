@@ -19,6 +19,8 @@ jobs:
       run: sudo apt-get install libcurl4-openssl-dev
     - name: setup gdal config
       run: sudo apt-get install gdal-bin libgdal-dev
+    - name: setup gcc
+      run: sudo apt-get install gcc
     - name: setup fortran
       run: sudo apt-get install libgfortran3
     - name: setup libudunits
