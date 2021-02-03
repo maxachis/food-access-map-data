@@ -2,10 +2,10 @@ name: Run Workflow
 on:
   push:
     branches:
-      - master
+      - catbranch
   pull_request:
     branches:
-      - master
+      - catbranch
 
 jobs:
   build:
