@@ -24,7 +24,7 @@ jobs:
     - name: setup libudunits
       run: sudo apt-get install libudunits2-dev
     - name: set up libprotobuf
-      run: sudo apt install --reinstall libprotobuf8 libprotobuf-c0 libprotoc8
+      run: sudo apt install libprotobuf8 
     - name: Install Packages
       run: Rscript -e 'install.packages(c("dplyr", "readr", "remotes", "mapboxapi", "purrr"), Ncpus = 2, repos = "https://demo.rstudiopm.com/cran/__linux__/centos7/latest", dependencies = TRUE)'
     #- name: Install remotes packages
